@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Study Planner</title>
+
+<style>
+/* 🌌 GLOBAL DARK THEME */
+body {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #1a1f2b, #0b0f1a);
+    color: #eaeaf0;
+    margin: 0;
+    padding: 0;
+}
+
+/* APP CONTAINER */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* HEADINGS */
+h1 {
+    text-align: center;
+    font-size: 2.6rem;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #6dd5fa, #9b7cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    text-align: center;
+    color: #a0a4c0;
+    margin-bottom: 40px;
+}
+
+/* GLASS CARD */
+.card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14px);
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* FORM */
+.task-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+input, select {
+    background: rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 12px;
+    outline: none;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+input:focus, select:focus {
+    border-color: #6dd5fa;
+    box-shadow: 0 0 10px rgba(109,213,250,0.6);
+}
+
+/* BUTTON */
+button {
+    grid-column: span 2;
+    background: linear-gradient(135deg, #6dd5fa, #9b7cff);
+    border: none;
+    color: #000;
+    font-weight: bold;
+    padding: 13px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 18px rgba(155,124,255,0.8);
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: #9fa8ff;
+    padding: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+tr:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+/* PRIORITY BADGES */
+.priority {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.priority.high {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+}
+
+.priority.medium {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+    color: #000;
+}
+
+.priority.low {
+    background: linear-gradient(135deg, #00f260, #0575e6);
+}
+
+/* DELETE */
+.delete-btn {
+    color: #ff6b6b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.delete-btn:hover {
+    text-shadow: 0 0 10px #ff6b6b;
+}
+
+/* EMPTY STATE */
+.empty {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>📚 Study Planner</h1>
+    <p class="subtitle">Focus • Plan • Execute</p>
+
+    <!-- ADD TASK -->
+    <div class="card">
+        <form class="task-form">
+            <input type="text" placeholder="Subject">
+            <input type="text" placeholder="Topic">
+            <input type="date">
+            <select>
+                <option>Priority</option>
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+            </select>
+            <button>Add Task</button>
+        </form>
+    </div>
+
+    <!-- TASK LIST -->
+    <div class="card">
+        <table>
+            <tr>
+                <th>Subject</th>
+                <th>Topic</th>
+                <th>Date</th>
+                <th>Priority</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>Maths</td>
+                <td>Integration</td>
+                <td>2026-02-10</td>
+                <td><span class="priority high">High</span></td>
+                <td><a class="delete-btn" href="#">Delete</a></td>
+            </tr>
+            <tr>
+                <td>Physics</td>
+                <td>Optics</td>
+                <td>2026-02-12</td>
+                <td><span class="priority medium">Medium</span></td>
+                <td><a class="delete-btn" href="#">Delete</a></td>
+            </tr>
+            <tr>
+                <td>English</td>
+                <td>last lesson</td>
+                <td>2026-02-12</td>
+                <td><span class="priority low">Low</span></td>
+                <td><a class="delete-btn" href="#">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
